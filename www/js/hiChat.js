@@ -47,9 +47,8 @@ HiChat.prototype = {
 			        that._displayNewMsg('me', msg,color); //把自己的消息显示到自己的窗口中
 			    };
 			}, false);
-			//发送图片功能
+			//发送图片功能，图片实时生成
 			document.getElementById('sendImage').addEventListener('change', function() {
-				console.log('files',this)
 				//检查是否有文件被选中
 				if(this.files.length!=0){
 					//获取文件并用FileReader进行读取
@@ -72,7 +71,7 @@ HiChat.prototype = {
 			that._initialEmoji();
 			//表情包功能
 			document.getElementById('emoji').addEventListener('click', function(e) {
-				console.log("表情包")
+				console.log("表情包功能")
 			     var emojiwrapper = document.getElementById('emojiWrapper');
 			     emojiwrapper.style.display = 'block';
 			     that._initialEmoji();
@@ -170,7 +169,6 @@ HiChat.prototype = {
 		container.scrollTop = container.scrollHeight;
     },
     _displayImage: function(user, imgData, color) {
-    	console.log("img23333")
 	    var container = document.getElementById('historyMsg'),
 	        msgToDisplay = document.createElement('p'),
 	        date = new Date().toTimeString().substr(0, 8);

@@ -25,7 +25,6 @@ var users = [];//保存所有在线用户的昵称
 //socket部分
 io.on('connection',function(socket){
 	console.log("connected!")
-	console.log(socket)
 	socket.on('login',function(nickname){
 		if(users.indexOf(nickname)>-1){
 			socket.emit('nickExisted')//昵称已经存在
@@ -40,6 +39,7 @@ io.on('connection',function(socket){
 	})
 	//断开连接的事件
 	socket.on('disconnect', function() {
+		console.log("disconnect！")
 	    //将断开连接的用户从users中删除
 	    console.log("socket",socket)
 	    users.splice(socket.userIndex, 1);
